@@ -46,6 +46,5 @@ orders_df      = pd.read_csv('olist_orders_dataset.csv', parse_dates=['order_pur
 order_items_df = pd.read_csv('olist_order_items_dataset.csv', parse_dates = ['shipping_limit_date'])
 
 
-customer_state              object
-dtype: object
+
 
