@@ -17,3 +17,35 @@ olist_orders_dataset.csv — таблица заказов
 olist_order_items_dataset.csv — товарные позиции, входящие в заказы
 
 olist_orders_dataset - Уникальные статусы заказов в таблице¶
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Для начала проведем разведывательный анализ данных. Посмотрим на типы данных и приведем их нужным по необходимости, проверим размерность таблиц, есть ли пропущенные значения и дубликаты.
+# загружаем нужные библиотеки
+import pandas as pd
+
+import numpy as np
+
+from operator import attrgetter
+
+import datetime
+
+import seaborn as sns
+
+import matplotlib.pyplot as plt
+
+%matplotlib inline
+
+# считываем датасеты. Все данные с датами приводим к формату дат.
+customers_df   = pd.read_csv('olist_customers_dataset.csv')
+
+orders_df      = pd.read_csv('olist_orders_dataset.csv', parse_dates=['order_purchase_timestamp','order_approved_at',
+                                                                           'order_delivered_carrier_date', 'order_delivered_customer_date',
+                                                                           'order_estimated_delivery_date'])
+                                                                           
+order_items_df = pd.read_csv('olist_order_items_dataset.csv', parse_dates = ['shipping_limit_date'])
+
+
+customer_state              object
+dtype: object
+
